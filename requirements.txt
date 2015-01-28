@@ -1,3 +1,5 @@
 Django==1.7
 ipython==2.2.0
 mongoengine==0.8.1
+
+gunicorn hello.wsgi:application --bind 8001
