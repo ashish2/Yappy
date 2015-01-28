@@ -1,0 +1,7 @@
+{% block content %}
+<ul>
+	{% for i in att %}
+		<li>{{i.siteuser.name}} - {{i.date}}</li>
+	{% endfor %}
+</ul>
+{% endblock %}
