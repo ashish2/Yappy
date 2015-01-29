@@ -8,10 +8,12 @@ from attendance.models import *
 from tastypie.api import Api
 from attendance.api import *
 from siteuser.api import *
+from points.api import *
 
 v1_api = Api(api_name='v1')
 v1_api.register(SiteuserResource())
 v1_api.register(AttendanceResource())
+v1_api.register(PointsResource())
 
 #API-
 
