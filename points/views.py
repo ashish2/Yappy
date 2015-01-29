@@ -14,7 +14,6 @@ def r(request):
 	"Total accumulated points of a student"
 	siteuser = request.GET.get("name")
 	s = Siteuser.objects.filter(name=siteuser)[0]
-	b = Behaviour.objects.filter(bid=bid)[0]
 	p = None
 	try:
 		p = Points.objects.filter(
