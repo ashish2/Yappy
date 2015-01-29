@@ -1,5 +1,21 @@
 Django==1.7
-ipython==2.2.0
-mongoengine==0.8.1
+PyYAML==3.11
+argparse==1.2.1
+biplist==0.9
 
-gunicorn hello.wsgi:application --bind 8001
+bson==0.3.3
+
+defusedxml==0.4.1
+django-tastypie==0.12.1
+django-tastypie-mongoengine==0.4.6
+ipython==2.2.0
+lxml==3.4.1
+mongoengine==0.8.1
+pymongo==2.7.2
+python-dateutil==2.4.0
+python-mimeparse==0.1.4
+
+pytz==2014.10
+
+six==1.9.0
+wsgiref==0.1.2

@@ -12,7 +12,19 @@ from points.models import *
 
 def r(request):
 	"Total accumulated points of a student"
-	pass
+	siteuser = request.GET.get("name")
+	s = Siteuser.objects.filter(name=siteuser)[0]
+	b = Behaviour.objects.filter(bid=bid)[0]
+	p = None
+	try:
+		p = Points.objects.filter(
+			siteuser = s.pk,
+		)
+	except:
+		print "Points could not be read"
+
+	d = {"points": p}
+	return render_to_response('po_l.html', d, context_instance = RequestContext(request) )
 
 def c(request):
 	"""Create function for points"""
