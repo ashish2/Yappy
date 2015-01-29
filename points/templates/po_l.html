@@ -1,6 +1,8 @@
 
 {% block content %}
-	{% for i in points %}
-		{{i.student}} - {{i.points}}
-	{% endfor %}
+	<ul>
+		{% for i in points %}
+			<li>{{i.siteuser.name}}: {{i.points}}</li>
+		{% endfor %}
+	</ul>
 {% endblock %}

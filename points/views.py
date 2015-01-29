@@ -11,14 +11,12 @@ from points.models import *
 
 
 def r(request):
-	"Total accumulated points of a student"
+	"""Total accumulated points of a student"""
 	siteuser = request.GET.get("name")
-	s = Siteuser.objects.filter(name=siteuser)[0]
+	s = Siteuser.objects.filter(name=siteuser).get(0)
 	p = None
 	try:
-		p = Points.objects.filter(
-			siteuser = s.pk,
-		)
+		p = Points.objects.filter(siteuser=s.pk)
 	except:
 		print "Points could not be read"
 

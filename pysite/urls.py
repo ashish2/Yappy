@@ -29,7 +29,7 @@ urlpatterns = patterns('',
 	# Api
 	# (r'^api/', include(v1_api.urls)),
 
-    #A-
+	#A-
 	url(r'^admin/', include(admin.site.urls)),
 
 )
