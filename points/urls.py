@@ -10,7 +10,7 @@ urlpatterns = patterns('points.views',
 	url(r'c', 'c', name="points_create"),
 	url(r'r', 'r', name="points_list"),
 
-	url(r'', 'index'),
+	# url(r'', 'index'),
 
     #A-
 )

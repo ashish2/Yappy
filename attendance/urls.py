@@ -10,7 +10,7 @@ urlpatterns = patterns('attendance.views',
 	url(r'c', 'c', name="attendance_create"),
 	url(r'r', 'r', name="attendance_list"),
 
-	url(r'', 'index'),
+	# url(r'', 'index'),
 
     #A-
 )

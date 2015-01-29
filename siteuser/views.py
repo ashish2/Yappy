@@ -17,3 +17,10 @@ def c(request):
 	return render_to_response('su_c.html', d, context_instance = RequestContext(request) )
 
 
+def r(request):
+	name = request.GET.get('name')
+
+	s = Siteuser.objects.filter(name=name, age=age, standard=std).get(0)
+	d = {"siteuser": s}
+	return render_to_response('su_r.html', d, context_instance = RequestContext(request) )
+

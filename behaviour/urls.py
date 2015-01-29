@@ -10,7 +10,7 @@ urlpatterns = patterns('behaviour.views',
 	url(r'c', 'c', name="behaviour_create"),
 	url(r'r', 'r', name="behaviour_list"),
 
-	url(r'', 'index'),
+	# url(r'', 'index'),
 
     #A-
 )

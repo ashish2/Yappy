@@ -1,11 +1,16 @@
 
 # myapp/api.py
-# from tastypie.resources import ModelResource
-# from attendance.models import *
 
+from tastypie import authorization
+from tastypie_mongoengine import resources
+# from test_app import documents
 
-# class AttendanceResource(ModelResource):
-# 	class Meta:
-# 		queryset = Attendance.objects.all()
-# 		resource_name = 'attendance'
+from attendance.models import *
+
+class AttendanceResource(resources.MongoEngineResource):
+	class Meta:
+		queryset = Attendance.objects.all()
+		allowed_methods = ('get', 'post', 'put', 'delete')
+		# authorization = authorization.Authorization()
+		resource_name = 'attendance'
 

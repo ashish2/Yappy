@@ -45,8 +45,8 @@ INSTALLED_APPS = (
 	'behaviour',
 	'points',
 
-	# 'tastypie',
-	# 'tastypie_mongoengine',
+	'tastypie',
+	'tastypie_mongoengine',
 
 	#A-
 )
@@ -118,10 +118,12 @@ STATIC_URL = '/static/'
 # mongoengine.connect(_MONGODB_NAME, host=_MONGODB_DATABASE_HOST)
 
 
-from mongoengine import *
-conn = connect('venv1_7cl')
+MONGO_DATABASE_NAME = 'venv1_7cl'
+
+import mongoengine
+conn = mongoengine.connect(MONGO_DATABASE_NAME)
 # put dbname in db & them import this `db` in all files, and access, db.collections
-db = conn['venv1_7cl']
+db = conn[MONGO_DATABASE_NAME]
 
 # SESSION_ENGINE = 'mongoengine.django.sessions'
 # SESSION_SERIALIZER = 'mongoengine.django.sessions.BSONSerializer'
