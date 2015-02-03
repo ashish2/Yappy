@@ -14,3 +14,4 @@ class AttendanceResource(resources.MongoEngineResource):
 		# authorization = authorization.Authorization()
 		resource_name = 'attendance'
 
+

@@ -17,3 +17,4 @@ class Points(Document):
 	date = DateTimeField(default=datetime.datetime.now)
 	
 	meta = {'allow_inheritance': True}
+
