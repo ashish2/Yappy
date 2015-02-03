@@ -14,7 +14,7 @@ def c(request):
 	points = request.GET.get("points")
 
 	try:
-		b, cr = Behaviour.objects.get_or_create(
+		beh, cr = Behaviour.objects.get_or_create(
 			bid = bid,
 			name = name,
 			points = points
@@ -22,11 +22,11 @@ def c(request):
 	except:
 		print "Behaviour coultdn't be created"
 
-	d = {"behaviour": b}
-	return render_to_response('beh_c.html', d, context_instance=RequestContext(request) )
+	dic = {"behaviour": beh}
+	return render_to_response('beh_c.html', dic, context_instance=RequestContext(request) )
 
 def r(request):
 	"""Read function for Behaviour"""
-	b = Behaviour.objects.all()
-	d = {"behaviour": b}
-	return render_to_response('beh_r.html', d, context_instance=RequestContext(request) )
+	behaviour_o = Behaviour.objects.all()
+	dic = {"behaviour": behaviour_o}
+	return render_to_response('beh_r.html', dic, context_instance=RequestContext(request) )

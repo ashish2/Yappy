@@ -13,30 +13,31 @@ from points.models import *
 def r(request):
 	"""Total accumulated points of a student"""
 	siteuser = request.GET.get("name")
-	s = Siteuser.objects.filter(name=siteuser).get(0)
+	siteuser_o = Siteuser.objects.filter(name=siteuser).get(0)
 	p = None
 	try:
-		p = Points.objects.filter(siteuser=s.pk)
+		points_o = Points.objects.filter(siteuser=siteuser_o.pk)
 	except:
 		print "Points could not be read"
 
-	d = {"points": p}
-	return render_to_response('po_l.html', d, context_instance = RequestContext(request) )
+	dic = {"points": points_o}
+	return render_to_response('po_l.html', dic, context_instance = RequestContext(request) )
 
 def c(request):
 	"""Create function for points"""
 	siteuser = request.GET.get("name")
 	bid = request.GET.get("bid")
-	s = Siteuser.objects.filter(name=siteuser)[0]
-	b = Behaviour.objects.filter(bid=bid)[0]
+	
+	siteuser_o = Siteuser.objects.filter(name=siteuser)[0]
+	beh_o = Behaviour.objects.filter(bid=bid)[0]
 	p = None
 	try:
-		p = Points.objects.create(
-			siteuser = s.pk,
-			points = b.points
+		points_o = Points.objects.create(
+			siteuser = siteuser_o.pk,
+			points = beh_o.points
 		)
 	except:
 		print "Points could not be created"
 
-	d = {"points": p}
-	return render_to_response('po_c.html', d, context_instance = RequestContext(request) )
+	dic = {"points": points_o}
+	return render_to_response('po_c.html', dic, context_instance = RequestContext(request) )

@@ -12,20 +12,20 @@ from siteuser.models import *
 def c(request):
 	"""This will update the attendance of a student"""
 	stud = request.GET.get("name")
-	s = Siteuser.objects.filter(name=stud).get(0)
+	siteuser_o = Siteuser.objects.filter(name=stud).get(0)
 	try:
-		cr = Attendance.objects.create(siteuser=s.pk)
+		att_cr = Attendance.objects.create(siteuser=siteuser_o.pk)
 	except:
 		print "Couldn't create attendance"
 
-	d = {"siteuser": s}
-	return render_to_response('att_c.html', d, context_instance=RequestContext(request) )
+	dic = {"siteuser": siteuser_o, "attendance": att_cr}
+	return render_to_response('att_c.html', dic, context_instance=RequestContext(request) )
 
 def r(request):
 	"""This will update the attendance of a student"""
 	stud = request.GET.get("name")
-	s = Siteuser.objects.filter(name=stud)[0]
-	att = Attendance.objects.filter(siteuser=s.pk)
-	d = {"att": att}
-	return render_to_response('att_r.html', d, context_instance=RequestContext(request) )
+	siteuser_o = Siteuser.objects.filter(name=stud)[0]
+	att_o = Attendance.objects.filter(siteuser=siteuser_o.pk)
+	dic = {"att": att_o}
+	return render_to_response('att_r.html', dic, context_instance=RequestContext(request) )
 

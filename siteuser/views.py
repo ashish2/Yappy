@@ -12,15 +12,15 @@ def c(request):
 	age = request.GET.get('age')
 	std = request.GET.get('standard')
 
-	s, cr = Siteuser.objects.get_or_create(name=name, age=age, standard=std)
-	d = {"siteuser": s}
-	return render_to_response('su_c.html', d, context_instance = RequestContext(request) )
+	siteuser_o, cr = Siteuser.objects.get_or_create(name=name, age=age, standard=std)
+	dic = {"siteuser": siteuser_o}
+	return render_to_response('su_c.html', dic, context_instance = RequestContext(request) )
 
 
 def r(request):
 	name = request.GET.get('name')
 
-	s = Siteuser.objects.filter(name=name, age=age, standard=std).get(0)
-	d = {"siteuser": s}
-	return render_to_response('su_r.html', d, context_instance = RequestContext(request) )
+	siteuser_o = Siteuser.objects.filter(name=name, age=age, standard=std).get(0)
+	dic = {"siteuser": siteuser_o}
+	return render_to_response('su_r.html', dic, context_instance = RequestContext(request) )
 
